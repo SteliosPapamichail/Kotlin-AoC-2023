@@ -17,3 +17,9 @@ tasks {
         gradleVersion = "8.4"
     }
 }
+dependencies {
+    implementation(kotlin("stdlib-jdk8"))
+}
+kotlin {
+    jvmToolchain(19)
+}
