@@ -18,15 +18,15 @@ fun main() {
         // i.e. eighthree should be replaced with 83.
         // using this map we would get: "eightthree" -> "8three" -> "83"
         val textToDigitMap = mapOf(
-                "one" to "1ne",
-                "two" to "2o",
-                "three" to "3e",
-                "four" to "4",
-                "five" to "5e",
-                "six" to "6",
-                "seven" to "7n",
-                "eight" to "8t",
-                "nine" to "9e"
+                "one" to "o1e",
+                "two" to "t2o",
+                "three" to "t3e",
+                "four" to "f4r",
+                "five" to "f5e",
+                "six" to "s6x",
+                "seven" to "s7n",
+                "eight" to "e8t",
+                "nine" to "n9e"
         )
 
         val decodedList = input.map { line ->
@@ -42,11 +42,7 @@ fun main() {
                 }
             }
             for (index in indexToReplacementMap.keys.sorted()) {
-                // ensure key is still present in the string after potential
-                // previous replacements
-                if (indexToReplacementMap[index]!! in updatedLine) {
-                    updatedLine = updatedLine.replace(indexToReplacementMap[index]!!, textToDigitMap[indexToReplacementMap[index]!!].toString())
-                }
+                updatedLine = updatedLine.replace(indexToReplacementMap[index]!!, textToDigitMap[indexToReplacementMap[index]!!].toString())
             }
 
             updatedLine
